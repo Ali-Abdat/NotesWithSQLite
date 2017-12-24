@@ -15,50 +15,6 @@ class NotesViewController: UIViewController,UISplitViewControllerDelegate,UIText
     @IBOutlet weak var MyTextView: UITextView!
     @IBOutlet weak var TextField: UITextField!
     @IBOutlet weak var DoneButton: UIBarButtonItem!
-//    var activeField: UITextView?
-//    func registerForKeyboardNotifications(){
-//        //Adding notifies on keyboard appearing
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//    }
-//    
-//    func deregisterFromKeyboardNotifications(){
-//        //Removing notifies on keyboard appearing
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//    }
-//    
-//    @objc func keyboardWasShown(notification: NSNotification){
-//        //Need to calculate keyboard exact size due to Apple suggestions
-//        var info = notification.userInfo!
-//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
-//        MyTextView.scrollIndicatorInsets = contentInsets
-//        
-//        var aRect : CGRect = self.view.frame
-//        aRect.size.height -= keyboardSize!.height
-//        if let activeField = self.activeField {
-//            if (!aRect.contains(activeField.frame.origin)){
-//                //MyTextView.scrollRangeToVisible(activeField.frame)
-//                MyTextView.scrollRectToVisible(activeField.frame, animated: true)
-//                //self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
-//            }
-//        }
-//    }
-//    @objc func keyboardWillBeHidden(notification: NSNotification){
-//        //Once keyboard disappears, restore original positions
-//        var info = notification.userInfo!
-//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
-//        MyTextView.scrollIndicatorInsets = contentInsets
-//        self.view.endEditing(true)
-//    }
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        activeField = textView
-//    }
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        activeField = nil
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,47 +95,4 @@ extension NotesViewController
             DoneButton.isEnabled = true
         }
     }
-//    @objc func keyboardFrameWillDisappear(notification: NSNotification)
-//    {
-//        let keyboardBeginFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardFrameBeginUserInfoKey)! as AnyObject).cgRectValue
-//        let keyboardEndFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardFrameEndUserInfoKey)! as AnyObject).cgRectValue
-//
-//        let animationCurve = UIViewAnimationCurve(rawValue: ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)! as AnyObject).integerValue)
-//
-//        let animationDuration: TimeInterval = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationDurationUserInfoKey)! as AnyObject).doubleValue
-//
-//        UIView.beginAnimations(nil, context: nil)
-//        UIView.setAnimationDuration(animationDuration)
-//        UIView.setAnimationCurve(animationCurve!)
-//
-//        var newFrame = self.view.frame
-//        let keyboardFrameEnd = self.view.convert(keyboardEndFrame!, to: nil)
-//        let keyboardFrameBegin = self.view.convert(keyboardBeginFrame!, to: nil)
-//
-//        newFrame.origin.y += (keyboardFrameBegin.origin.y + keyboardFrameEnd.origin.y)
-//        self.view.frame = newFrame;
-//
-//        UIView.commitAnimations()
-//    }
-//    @objc func keyboardFrameWillChange(notification: NSNotification) {
-//        let keyboardBeginFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardFrameBeginUserInfoKey)! as AnyObject).cgRectValue
-//        let keyboardEndFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardFrameEndUserInfoKey)! as AnyObject).cgRectValue
-//
-//        let animationCurve = UIViewAnimationCurve(rawValue: ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)! as AnyObject).integerValue)
-//
-//        let animationDuration: TimeInterval = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationDurationUserInfoKey)! as AnyObject).doubleValue
-//
-//        UIView.beginAnimations(nil, context: nil)
-//        UIView.setAnimationDuration(animationDuration)
-//        UIView.setAnimationCurve(animationCurve!)
-//
-//        var newFrame = self.view.frame
-//        let keyboardFrameEnd = self.view.convert(keyboardEndFrame!, to: nil)
-//        let keyboardFrameBegin = self.view.convert(keyboardBeginFrame!, to: nil)
-//
-//        newFrame.origin.y -= (keyboardFrameBegin.origin.y - keyboardFrameEnd.origin.y)
-//        self.view.frame = newFrame;
-//
-//        UIView.commitAnimations()
-//    }
 }
